@@ -1,0 +1,9 @@
+/* Base styles for Vivek Kumar Portfolio */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+}
