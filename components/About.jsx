@@ -1,45 +1,107 @@
 import React from 'react';
 import SectionWrapper from './SectionWrapper';
-import { User, Code, Target } from 'lucide-react';
+import { User, Code2, Target, Layers, Briefcase, Trophy } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+const CARDS = [
+    {
+        icon: User,
+        title: "Who I Am",
+        desc: "Third-year B.Tech CSE student at Lovely Professional University, combining technical depth with creative problem-solving.",
+        color: "cyan",
+        iconBg: "bg-cyan-500/10",
+        iconColor: "text-cyan-400",
+        glow: "hover:shadow-cyan-500/10"
+    },
+    {
+        icon: Code2,
+        title: "What I Do",
+        desc: "Full Stack Development with MERN stack and PHP/Laravel. I build responsive, accessible, and performant web applications.",
+        color: "violet",
+        iconBg: "bg-violet-500/10",
+        iconColor: "text-violet-400",
+        glow: "hover:shadow-violet-500/10"
+    },
+    {
+        icon: Target,
+        title: "My Goal",
+        desc: "Placement-ready for top-tier software engineering roles. Constantly learning emerging tech to stay ahead of the curve.",
+        color: "pink",
+        iconBg: "bg-pink-500/10",
+        iconColor: "text-pink-400",
+        glow: "hover:shadow-pink-500/10"
+    },
+];
+
+const STATS = [
+    { icon: Layers, value: "3+", label: "Projects Live" },
+    { icon: Code2, value: "5+", label: "Tech Stacks" },
+    { icon: Briefcase, value: "1", label: "Internship" },
+    { icon: Trophy, value: "3rd", label: "Year CSE" },
+];
 
 const About = () => {
     return (
-        <SectionWrapper id="about" className="bg-white dark:bg-gray-900/50">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
-                <div className="w-20 h-1.5 bg-primary mx-auto rounded-full"></div>
+        <SectionWrapper id="about" className="section-dark-alt">
+            {/* Section Header */}
+            <div className="text-center mb-16">
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3"
+                >
+                    Get to know me
+                </motion.p>
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    About <span className="gradient-text">Me</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-                <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                    <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg flex items-center justify-center mb-4">
-                        <User size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">Who I Am</h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        I am a third-year B.Tech CSE student at Lovely Professional University. I combine technical knowledge with a creative approach to solve complex problems efficiently.
-                    </p>
-                </div>
+            {/* Cards */}
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
+                {CARDS.map((card, idx) => {
+                    const Icon = card.icon;
+                    return (
+                        <motion.div
+                            key={card.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.15, duration: 0.6 }}
+                            whileHover={{ y: -6 }}
+                            className={`p-7 rounded-2xl glass glow-border card-glow-top transition-all duration-300 hover:shadow-2xl ${card.glow}`}
+                        >
+                            <div className={`w-12 h-12 ${card.iconBg} ${card.iconColor} rounded-xl flex items-center justify-center mb-5`}>
+                                <Icon size={24} />
+                            </div>
+                            <h3 className="text-xl font-display font-bold text-white mb-3">{card.title}</h3>
+                            <p className="text-slate-400 leading-relaxed text-sm">{card.desc}</p>
+                        </motion.div>
+                    );
+                })}
+            </div>
 
-                <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                    <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg flex items-center justify-center mb-4">
-                        <Code size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">What I Do</h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        I specialize in Full Stack Development (MERN, PHP/Laravel). I build responsive, accessible, and performant web applications with modern technologies.
-                    </p>
-                </div>
-
-                <div className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-800/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-800">
-                    <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg flex items-center justify-center mb-4">
-                        <Target size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">My Goal</h3>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Aiming to be placement-ready for top-tier internships/fulltime roles and software engineering roles. I am constantly learning new technologies to stay ahead in the tech curve.
-                    </p>
-                </div>
+            {/* Stats Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {STATS.map((stat, idx) => {
+                    const Icon = stat.icon;
+                    return (
+                        <motion.div
+                            key={stat.label}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1, duration: 0.5 }}
+                            className="p-5 rounded-xl glass glow-border text-center"
+                        >
+                            <Icon size={18} className="text-cyan-400 mx-auto mb-2" />
+                            <div className="text-3xl font-display font-black gradient-text">{stat.value}</div>
+                            <div className="text-xs text-slate-500 mt-1 tracking-wide">{stat.label}</div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </SectionWrapper>
     );

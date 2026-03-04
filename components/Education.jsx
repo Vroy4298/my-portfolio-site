@@ -1,36 +1,60 @@
 import React from 'react';
 import SectionWrapper from './SectionWrapper';
 import { EDUCATION } from '../constants';
-import { GraduationCap } from 'lucide-react';
+import { GraduationCap, Calendar } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Education = () => {
     return (
-        <SectionWrapper id="education">
+        <SectionWrapper id="education" className="section-dark">
+            {/* Header */}
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">Education</h2>
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3"
+                >
+                    Academic Background
+                </motion.p>
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    <span className="gradient-text">Education</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full" />
             </div>
 
-            <div className="max-w-4xl mx-auto space-y-8">
+            <div className="max-w-4xl mx-auto space-y-6">
                 {EDUCATION.map((edu, index) => (
                     <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="flex flex-col md:flex-row gap-6 items-center bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:border-l-4 hover:border-l-primary transition-all duration-300"
+                        transition={{ delay: index * 0.15, duration: 0.6 }}
+                        whileHover={{ x: 6 }}
+                        className="flex flex-col md:flex-row gap-6 items-center glass glow-border card-glow-top rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/5"
                     >
-                        <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center shrink-0">
-                            <GraduationCap size={32} />
+                        {/* Icon */}
+                        <div className="w-16 h-16 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center shrink-0">
+                            <GraduationCap size={30} />
                         </div>
+
+                        {/* Info */}
                         <div className="flex-1 text-center md:text-left">
-                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{edu.degree}</h3>
-                            <p className="text-primary font-medium">{edu.institution}</p>
-                            {edu.details && <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">{edu.details}</p>}
+                            <h3 className="text-xl font-display font-bold text-white mb-1">{edu.degree}</h3>
+                            <p className="text-cyan-400 font-medium text-sm mb-1">{edu.institution}</p>
+                            {edu.details && (
+                                <p className="text-slate-500 text-sm">{edu.details}</p>
+                            )}
                         </div>
+
+                        {/* Period + Score */}
                         <div className="text-center md:text-right shrink-0">
-                            <span className="block text-sm font-bold text-gray-900 dark:text-white">{edu.period}</span>
-                            <span className="inline-block px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-xs font-bold rounded-full mt-1">
+                            <div className="flex items-center justify-center md:justify-end gap-1.5 text-sm text-slate-400 mb-2">
+                                <Calendar size={13} />
+                                <span>{edu.period}</span>
+                            </div>
+                            <span className="inline-block px-4 py-1.5 bg-green-500/10 text-green-400 border border-green-500/25 text-xs font-bold rounded-full">
                                 {edu.score}
                             </span>
                         </div>

@@ -3,62 +3,97 @@ import SectionWrapper from './SectionWrapper';
 import { SKILLS } from '../constants';
 import { motion } from 'framer-motion';
 
+const CATEGORY_ACCENTS = {
+    "Frontend": { header: "text-cyan-400", badge: "bg-cyan-500/10 border-cyan-500/30 text-cyan-300" },
+    "Backend": { header: "text-violet-400", badge: "bg-violet-500/10 border-violet-500/30 text-violet-300" },
+    "Database": { header: "text-pink-400", badge: "bg-pink-500/10 border-pink-500/30 text-pink-300" },
+    "Tools": { header: "text-amber-400", badge: "bg-amber-500/10 border-amber-500/30 text-amber-300" },
+};
+
+const DEFAULT_ACCENT = { header: "text-cyan-400", badge: "bg-cyan-500/10 border-cyan-500/30 text-cyan-300" };
+
 const Skills = () => {
-    // Group skills by category
     const categories = Array.from(new Set(SKILLS.map(s => s.category)));
 
     const container = {
         hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
+        show: { opacity: 1, transition: { staggerChildren: 0.07 } }
     };
-
-    const item = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
+    const pill = {
+        hidden: { opacity: 0, scale: 0.8 },
+        show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
     };
 
     return (
-        <SectionWrapper id="skills">
+        <SectionWrapper id="skills" className="section-dark">
+            {/* Header */}
             <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h2>
-                <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                    A toolkit of modern technologies I use to bring ideas to life.
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3"
+                >
+                    My Toolkit
+                </motion.p>
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    Technical <span className="gradient-text">Skills</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full mb-4" />
+                <p className="text-slate-400 max-w-xl mx-auto text-sm">
+                    A curated toolkit of modern technologies I use to ship full-stack products.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {/* Bento Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {categories.map((category, catIdx) => {
+                    const accent = CATEGORY_ACCENTS[category] || DEFAULT_ACCENT;
+                    const categorySkills = SKILLS.filter(s => s.category === category);
 
-                {categories.map((category) => (
-                    <div key={category} className="space-y-4">
-                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 border-l-4 border-primary pl-3">
-                            {category}
-                        </h3>
+                    return (
                         <motion.div
-                            variants={container}
-                            initial="hidden"
-                            whileInView="show"
+                            key={category}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="flex flex-wrap gap-3"
+                            transition={{ delay: catIdx * 0.12, duration: 0.6 }}
+                            className="p-6 rounded-2xl glass glow-border card-glow-top"
                         >
-                            {SKILLS.filter(s => s.category === category).map((skill) => (
-                                <motion.div
-                                    key={skill.name}
-                                    variants={item}
-                                    whileHover={{ scale: 1.05, y: -2 }}
-                                    className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 transition-colors cursor-default"
-                                >
-                                    {skill.icon && <skill.icon size={16} className="text-primary" />}
-                                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
-                                </motion.div>
-                            ))}
+                            {/* Category header */}
+                            <div className="flex items-center gap-2 mb-5">
+                                <div className={`w-2 h-6 rounded-full ${accent.header === "text-cyan-400" ? "bg-cyan-400" :
+                                        accent.header === "text-violet-400" ? "bg-violet-400" :
+                                            accent.header === "text-pink-400" ? "bg-pink-400" : "bg-amber-400"
+                                    }`} />
+                                <h3 className={`text-base font-display font-bold ${accent.header}`}>
+                                    {category}
+                                </h3>
+                            </div>
+
+                            {/* Skill pills */}
+                            <motion.div
+                                variants={container}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: true }}
+                                className="flex flex-wrap gap-2"
+                            >
+                                {categorySkills.map((skill) => (
+                                    <motion.div
+                                        key={skill.name}
+                                        variants={pill}
+                                        whileHover={{ scale: 1.08, y: -2 }}
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium cursor-default ${accent.badge} transition-all`}
+                                    >
+                                        {skill.icon && <skill.icon size={13} />}
+                                        {skill.name}
+                                    </motion.div>
+                                ))}
+                            </motion.div>
                         </motion.div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </SectionWrapper>
     );

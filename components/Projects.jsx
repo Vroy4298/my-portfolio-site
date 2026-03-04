@@ -13,31 +13,45 @@ const Projects = () => {
         : PROJECTS.filter(p => p.category === filter || p.techStack.includes(filter));
 
     return (
-        <SectionWrapper id="projects" className="bg-gray-50 dark:bg-gray-900/50">
+        <SectionWrapper id="projects" className="section-dark-alt">
+            {/* Header */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-8">
+                <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-3"
+                >
+                    My Work
+                </motion.p>
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
+                    Featured <span className="gradient-text">Projects</span>
+                </h2>
+                <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full mb-6" />
+                <p className="text-slate-400 mb-10 text-sm max-w-xl mx-auto">
                     A selection of projects that showcase my skills and passion for coding.
                 </p>
 
-                {/* Filters */}
-                <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {/* Filter pills */}
+                <div className="flex flex-wrap justify-center gap-3">
                     {categories.map(cat => (
-                        <button
+                        <motion.button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
-                                    ? 'bg-primary text-white shadow-md'
-                                    : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                                    ? 'shimmer-btn text-white shadow-lg shadow-cyan-500/25'
+                                    : 'glass glow-border text-slate-400 hover:text-white'
                                 }`}
                         >
                             {cat}
-                        </button>
+                        </motion.button>
                     ))}
                 </div>
             </div>
 
-            <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <AnimatePresence>
                     {filteredProjects.map((project) => (
                         <motion.div
@@ -45,56 +59,50 @@ const Projects = () => {
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.35 }}
                             key={project.id}
-                            className="group bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl hover:border-primary/30 transition-all duration-300"
+                            whileHover={{ y: -6 }}
+                            className="group glass glow-border card-glow-top rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/5 flex flex-col"
                         >
-                            <div className="relative h-48 overflow-hidden">
+                            {/* Thumbnail */}
+                            <div className="relative h-44 overflow-hidden bg-gradient-to-br from-cyan-900/30 to-violet-900/30">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
+                                {/* Overlay with links */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                     <div className="flex gap-3">
                                         {project.githubLink && (
-                                            <a
-                                                href={project.githubLink}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-primary transition-colors"
-                                                title="View Code"
-                                            >
-                                                <Github size={20} />
+                                            <a href={project.githubLink} target="_blank" rel="noreferrer"
+                                                className="p-2 glass rounded-full text-white hover:text-cyan-400 transition-colors"
+                                                title="View Code">
+                                                <Github size={18} />
                                             </a>
                                         )}
                                         {project.demoLink && (
-                                            <a
-                                                href={project.demoLink}
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-primary transition-colors"
-                                                title="Live Demo"
-                                            >
-                                                <ExternalLink size={20} />
+                                            <a href={project.demoLink} target="_blank" rel="noreferrer"
+                                                className="p-2 glass rounded-full text-white hover:text-cyan-400 transition-colors"
+                                                title="Live Demo">
+                                                <ExternalLink size={18} />
                                             </a>
                                         )}
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
+                            {/* Content */}
+                            <div className="p-6 flex flex-col flex-1">
+                                <h3 className="text-lg font-display font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
                                     {project.title}
                                 </h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                                <p className="text-slate-400 text-sm mb-4 line-clamp-3 leading-relaxed flex-1">
                                     {project.description}
                                 </p>
                                 <div className="flex flex-wrap gap-2">
                                     {project.techStack.map(tech => (
-                                        <span key={tech} className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded">
-                                            {tech}
-                                        </span>
+                                        <span key={tech} className="tech-pill">{tech}</span>
                                     ))}
                                 </div>
                             </div>
