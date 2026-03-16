@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import SectionWrapper from './SectionWrapper';
 import { PROJECTS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Sparkles } from 'lucide-react';
 
 const Projects = () => {
     const [filter, setFilter] = useState("All");
-    const categories = ["All", "Web", "React", "PHP", "IoT"];
+    const categories = ["All", "Web", "PHP"];
 
     const filteredProjects = filter === "All"
         ? PROJECTS
@@ -14,6 +14,18 @@ const Projects = () => {
 
     return (
         <SectionWrapper id="projects" className="section-dark-alt">
+            {/* Inject keyframe animations */}
+            <style>{`
+                @keyframes latestPulse {
+                    0%, 100% { box-shadow: 0 0 10px rgba(6,182,212,0.6), 0 0 20px rgba(139,92,246,0.3); }
+                    50% { box-shadow: 0 0 18px rgba(6,182,212,1), 0 0 30px rgba(139,92,246,0.6); }
+                }
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            `}</style>
+
             {/* Header */}
             <div className="text-center mb-12">
                 <motion.p
@@ -71,6 +83,25 @@ const Projects = () => {
                                     alt={project.title}
                                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80"
                                 />
+
+                                {/* Latest badge */}
+                                {project.isLatest && (
+                                    <div
+                                        className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold text-white"
+                                        style={{
+                                            background: 'linear-gradient(135deg, rgba(6,182,212,0.92) 0%, rgba(139,92,246,0.92) 100%)',
+                                            animation: 'latestPulse 2s ease-in-out infinite',
+                                        }}
+                                    >
+                                        <span
+                                            className="inline-block w-1.5 h-1.5 rounded-full bg-white"
+                                            style={{ animation: 'blink 1s step-start infinite' }}
+                                        />
+                                        <Sparkles size={11} />
+                                        Latest
+                                    </div>
+                                )}
+
                                 {/* Overlay with links */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                     <div className="flex gap-3">

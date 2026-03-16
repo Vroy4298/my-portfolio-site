@@ -49,48 +49,30 @@ export const PROJECTS = [
     {
         id: "1",
         title: "Land Tax System",
-        description: "A comprehensive system for managing land tax records, calculating dues, and generating reports. Built with a robust backend and responsive frontend.",
+        description: "A production-ready Land Tax Management System with secure user authentication, property management, automated tax calculation, online payments, receipt generation, and email-based password recovery. Deployed on Vercel and Render.",
         techStack: ["React", "Node.js", "MongoDB", "Express"],
         category: "Web",
         githubLink: "https://github.com/Vroy4298/land-tax-system",
-        image: "https://picsum.photos/seed/landtax/600/400"
+        image: "/land_tax_preview.png",
+        isLatest: true,
     },
     {
         id: "2",
-        title: "Meal Planner Web App",
-        description: "An intuitive application helping users plan weekly meals, generate grocery lists, and track nutritional intake.",
-        techStack: ["React", "Firebase", "API Integration"],
-        category: "React",
-        githubLink: "https://github.com/Vroy4298/cookbook",
-        demoLink: "https://demo.com",
-        image: "https://picsum.photos/seed/meal/600/400"
+        title: "LeaveLoop",
+        description: "A comprehensive full-stack HR platform to streamline employee leave applications and reimbursement requests. Features role-based access control, leave balance tracking, admin approvals, and a beautiful role-aware dashboard.",
+        techStack: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
+        category: "Web",
+        githubLink: "https://github.com/Vroy4298/LeaveLoop",
+        image: "/leaveloop_preview.png",
     },
     {
         id: "3",
-        title: "Speed On Transport",
-        description: "A logistics management application for tracking vehicle speed and transport schedules efficiently.",
-        techStack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
+        title: "Transport Booking System",
+        description: "A full-stack Laravel web app with PostgreSQL & Tailwind CSS for online ride booking, admin dashboard management, real-time email notifications, booking charts, Excel export, and live deployment on Render via Docker.",
+        techStack: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "Docker"],
         category: "PHP",
         githubLink: "https://github.com/Vroy4298/transport-booking-system",
-        image: "https://picsum.photos/seed/transport/600/400"
-    },
-    {
-        id: "4",
-        title: "Automatic Water Sensor Shed",
-        description: "IoT solution that automatically closes a shed roof when rain is detected using Arduino and moisture sensors.",
-        techStack: ["Arduino", "C++", "Sensors", "IoT"],
-        category: "IoT",
-        image: "https://picsum.photos/seed/arduino/600/400"
-    },
-    {
-        id: "5",
-        title: "Password Generator",
-        description: "Secure password generator with customizable length, character types, and strength analysis.",
-        techStack: ["React", "CSS3", "Algorithms"],
-        category: "React",
-        githubLink: "",
-        demoLink: "https://demo.com",
-        image: "https://picsum.photos/seed/pass/600/400"
+        image: "/transport_preview.png",
     },
 ];
 
