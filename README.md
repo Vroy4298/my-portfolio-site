@@ -27,8 +27,7 @@ Some of the key projects featured in my portfolio include:
 - **Land Tax System**: Comprehensive management system (React, Node.js, MongoDB).
 - **Meal Planner Web App**: Weekly planner with tracked nutritional intake (React, Firebase).
 - **Speed On Transport**: Logistics management built with Laravel, PHP, and MySQL.
-- **Automatic Water Sensor Shed**: IoT hardware project using Arduino and C++.
-- **Password Generator**: Custom secured password utility in React.
+
 
 ## ⚙️ Running Locally
 

@@ -97,7 +97,7 @@ const Contact = () => {
                                 id="name"
                                 required
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 outline-none text-white placeholder-slate-600 transition-all duration-200"
-                                placeholder="John Doe"
+                                placeholder=""
                             />
                         </div>
                         <div>
@@ -107,7 +107,7 @@ const Contact = () => {
                                 id="email"
                                 required
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 outline-none text-white placeholder-slate-600 transition-all duration-200"
-                                placeholder="john@example.com"
+                                placeholder=""
                             />
                         </div>
                         <div>
@@ -127,8 +127,8 @@ const Contact = () => {
                             whileHover={formState === 'idle' ? { scale: 1.02 } : {}}
                             whileTap={formState === 'idle' ? { scale: 0.98 } : {}}
                             className={`w-full py-3.5 rounded-xl font-display font-semibold text-white flex items-center justify-center gap-2 transition-all duration-300 ${formState === 'success'
-                                    ? 'bg-green-500 shadow-lg shadow-green-500/25'
-                                    : 'shimmer-btn btn-glow'
+                                ? 'bg-green-500 shadow-lg shadow-green-500/25'
+                                : 'shimmer-btn btn-glow'
                                 }`}
                         >
                             <AnimatePresence mode='wait'>
