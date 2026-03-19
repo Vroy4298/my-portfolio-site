@@ -18,12 +18,12 @@ const Certifications = () => {
                     Major Credentials
                 </motion.p>
                 <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-                    <span className="gradient-text">Certifications</span>
+                    <span className="gradient-text">Certification</span>
                 </h2>
                 <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 to-violet-500 mx-auto rounded-full" />
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="flex justify-center gap-6 mb-16">
                 {CERTIFICATIONS.map((cert, index) => (
                     <motion.div
                         key={index}
@@ -32,7 +32,7 @@ const Certifications = () => {
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 0.5 }}
                         whileHover={{ y: -6 }}
-                        className="group glass glow-border card-glow-top rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10"
+                        className="group glass glow-border card-glow-top rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/10 w-full max-w-sm"
                     >
                         {/* Subtle bg glow */}
                         <div className="absolute -top-4 -right-4 w-20 h-20 bg-violet-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

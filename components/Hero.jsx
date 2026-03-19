@@ -159,7 +159,7 @@ const Hero = () => {
                         <div className="flex justify-center mb-8 relative z-10">
                             <div className="w-56 h-56 rounded-full border-[3px] border-cyan-500/30 overflow-hidden shadow-[0_0_40px_rgba(6,182,212,0.2)] bg-white">
                                 <img 
-                                    src="/Profile_pc.jpg" 
+                                    src="/Profile_pic.jpg" 
                                     alt="Vivek Kumar" 
                                     className="w-full h-full object-cover object-top scale-[1.35] translate-y-3"
                                 />
