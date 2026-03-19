@@ -97,7 +97,7 @@ const Contact = () => {
                                 id="name"
                                 required
                                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 focus:border-cyan-500/60 focus:ring-1 focus:ring-cyan-500/30 outline-none text-white placeholder-slate-600 transition-all duration-200"
-                                placeholder=""
+                                placeholder=".."
                             />
                         </div>
                         <div>
