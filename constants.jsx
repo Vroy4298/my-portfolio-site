@@ -97,7 +97,10 @@ export const CERTIFICATIONS = [
         date: "2025 - 2027",
         url: "https://drive.google.com/uc?export=view&id=1J6yDXANuU1y8kQ8N0q1CoXESIJI_nSWP",
         description: "Certified in Oracle Cloud Infrastructure Developer tools, automation, and cloud-based deployment fundamentals."
-    },
+    }
+];
+
+export const CERTIFICATES = [
     {
         name: "Mastering Java for Application Development",
         issuer: "Lovely Professional University",

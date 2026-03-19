@@ -7,7 +7,7 @@ const CARDS = [
     {
         icon: User,
         title: "Who I Am",
-        desc: "Third-year B.Tech CSE student at Lovely Professional University, combining technical depth with creative problem-solving.",
+        desc: "As a third-year B.Tech Computer Science & Engineering student at Lovely Professional University, I blend technical expertise with creative problem-solving. My passion lies in creating efficient algorithms and architecting elegant digital solutions from the ground up.",
         color: "cyan",
         iconBg: "bg-cyan-500/10",
         iconColor: "text-cyan-400",
@@ -16,7 +16,7 @@ const CARDS = [
     {
         icon: Code2,
         title: "What I Do",
-        desc: "Full Stack Development with MERN stack and PHP/Laravel. I build responsive, accessible, and performant web applications.",
+        desc: "I specialize in Full Stack Development, leveraging modern technologies like the MERN stack and PHP/Laravel. I craft responsive, highly accessible, and exceptionally performant web applications that deliver seamless user experiences and solve real-world problems.",
         color: "violet",
         iconBg: "bg-violet-500/10",
         iconColor: "text-violet-400",
@@ -25,7 +25,7 @@ const CARDS = [
     {
         icon: Target,
         title: "My Goal",
-        desc: "Placement-ready for top-tier software engineering roles. Constantly learning emerging tech to stay ahead of the curve.",
+        desc: "I am actively preparing to be placement-ready for top-tier software engineering roles. Driven by a thirst for knowledge, I continuously explore emerging technologies and strive to stay ahead of the curve to build scalable, impactful applications.",
         color: "pink",
         iconBg: "bg-pink-500/10",
         iconColor: "text-pink-400",

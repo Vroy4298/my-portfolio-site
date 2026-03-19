@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail, ChevronDown, Eye } from 'lucide-react';
 
 const ROLES = ["Full Stack Developer", "MERN Stack Dev", "Problem Solver", "CSE Student"];
 
@@ -119,14 +119,14 @@ const Hero = () => {
                             View Projects <ArrowRight size={18} />
                         </motion.button>
                         <motion.a
-                            href="https://drive.google.com/uc?export=download&id=1XFYw2pYwVOwx1zQDAWN-PpCVSdWPix_y"
+                            href="https://drive.google.com/uc?export=view&id=1XFYw2pYwVOwx1zQDAWN-PpCVSdWPix_y"
                             target="_blank"
                             rel="noreferrer"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                             className="px-8 py-3.5 rounded-xl glass glow-border text-slate-200 font-semibold flex items-center justify-center gap-2 font-display"
                         >
-                            Download Resume <Download size={18} />
+                            View Resume <Eye size={18} />
                         </motion.a>
                     </div>
 
@@ -155,6 +155,17 @@ const Hero = () => {
                     className="hidden md:block"
                 >
                     <div className="relative">
+                        {/* Profile Picture */}
+                        <div className="flex justify-center mb-8 relative z-10">
+                            <div className="w-56 h-56 rounded-full border-[3px] border-cyan-500/30 overflow-hidden shadow-[0_0_40px_rgba(6,182,212,0.2)] bg-white">
+                                <img 
+                                    src="/Profile_pc.jpg" 
+                                    alt="Vivek Kumar" 
+                                    className="w-full h-full object-cover object-top scale-[1.35] translate-y-3"
+                                />
+                            </div>
+                        </div>
+
                         {/* Glow behind terminal */}
                         <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/20 to-violet-500/20 rounded-2xl blur-2xl" />
                         <div className="relative glass rounded-2xl overflow-hidden border border-cyan-500/20">
