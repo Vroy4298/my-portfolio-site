@@ -119,7 +119,7 @@ const Hero = () => {
                             View Projects <ArrowRight size={18} />
                         </motion.button>
                         <motion.a
-                            href="https://drive.google.com/uc?export=view&id=1XFYw2pYwVOwx1zQDAWN-PpCVSdWPix_y"
+                            href="https://drive.google.com/file/d/1k2uzddUSTYT0zy2fFrzxF5q_Lou-eqMu/view?usp=sharing"
                             target="_blank"
                             rel="noreferrer"
                             whileHover={{ scale: 1.03 }}

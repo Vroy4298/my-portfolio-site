@@ -95,7 +95,7 @@ export const CERTIFICATIONS = [
         name: "Oracle Cloud Infrastructure 2025 Developer Professional",
         issuer: "Oracle University",
         date: "2025 - 2027",
-        url: "https://drive.google.com/uc?export=view&id=1J6yDXANuU1y8kQ8N0q1CoXESIJI_nSWP",
+        url: "https://drive.google.com/file/d/1J6yDXANuU1y8kQ8N0q1CoXESIJI_nSWP/view?usp=sharing",
         description: "Certified in Oracle Cloud Infrastructure Developer tools, automation, and cloud-based deployment fundamentals."
     }
 ];
@@ -105,21 +105,21 @@ export const CERTIFICATES = [
         name: "Mastering Java for Application Development",
         issuer: "Lovely Professional University",
         date: "June 2025 - July 2025",
-        url: "https://drive.google.com/uc?export=view&id=1lOZziBHt8ol_fIdpYSX-pwoFw5MLk4g_",
+        url: "https://drive.google.com/file/d/1lOZziBHt8ol_fIdpYSX-pwoFw5MLk4g_/view?usp=sharing",
         description: "Completed 50 hours of advanced Java programming including OOP, JDBC, multithreading, and application development."
     },
     {
         name: "Basic Python Towards ML/AI",
         issuer: "CSE Pathshala",
         date: "Feb 2024 - Mar 2024",
-        url: "https://drive.google.com/uc?export=view&id=1ISf4yfGlxR84nuPOPkrf84YR3tuLdWEi",
+        url: "https://drive.google.com/file/d/1ISf4yfGlxR84nuPOPkrf84YR3tuLdWEi/view?usp=sharing",
         description: "Learned Python fundamentals with ML-oriented topics including loops, functions, NumPy basics, and small ML tasks."
     },
     {
         name: "Privacy & Security in Online Social Media (NPTEL)",
         issuer: "IIIT Hyderabad · IIT Madras · NPTEL",
         date: "Jan 2025 - Apr 2025",
-        url: "https://drive.google.com/uc?export=view&id=1v8dG-YZl05CAzne8afymnBF3r6ZQNMgs",
+        url: "https://drive.google.com/file/d/1v8dG-YZl05CAzne8afymnBF3r6ZQNMgs/view?usp=sharing",
         description: "Explored privacy threats, OSINT, social graph analysis, and real-world attacks across online social media platforms."
     }
 ];
