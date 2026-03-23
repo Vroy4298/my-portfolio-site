@@ -43,6 +43,17 @@ const STATS = [
 const About = () => {
     return (
         <SectionWrapper id="about" className="section-dark-alt">
+            {/* Profile Picture */}
+            <div className="flex justify-center mb-10">
+                <div className="w-40 h-40 rounded-full border-[3px] border-cyan-500/30 overflow-hidden shadow-[0_0_40px_rgba(6,182,212,0.2)] bg-white/5">
+                    <img
+                        src="/Profile_pic.png"
+                        alt="Vivek Kumar"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+
             {/* Section Header */}
             <div className="text-center mb-16">
                 <motion.p
