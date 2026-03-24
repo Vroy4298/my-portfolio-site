@@ -58,6 +58,11 @@ const Hero = () => {
 
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 mesh-bg">
+            {/* HUD corner brackets */}
+            <div className="hud-corner hud-corner-tl" />
+            <div className="hud-corner hud-corner-tr" />
+            <div className="hud-corner hud-corner-bl" />
+            <div className="hud-corner hud-corner-br" />
             {/* Animated background blobs */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="blob absolute top-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full opacity-30"
@@ -166,7 +171,7 @@ const Hero = () => {
                                 <span className="ml-3 text-xs text-slate-500 terminal-text">vivek.config.js</span>
                             </div>
                             {/* Terminal body */}
-                            <div className="p-6 min-h-[220px]">
+                            <div className="p-6 min-h-[220px] terminal-scanline">
                                 <div className="terminal-text space-y-1">
                                     {termLines.map((line, i) => (
                                         <div
@@ -188,7 +193,7 @@ const Hero = () => {
                         <motion.div
                             animate={{ y: [0, -8, 0] }}
                             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-4 -right-4 px-3 py-1.5 glass rounded-lg border border-cyan-500/30 text-xs font-medium text-cyan-400"
+                            className="absolute -top-4 -right-4 px-3 py-1.5 glass rounded-lg border border-cyan-500/30 text-xs font-medium text-cyan-400 neon-flicker"
                         >
                             ⚛ React
                         </motion.div>
@@ -198,6 +203,20 @@ const Hero = () => {
                             className="absolute -bottom-4 -left-4 px-3 py-1.5 glass rounded-lg border border-violet-500/30 text-xs font-medium text-violet-400"
                         >
                             🟢 Node.js
+                        </motion.div>
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                            className="absolute top-1/2 -right-12 px-3 py-1.5 glass rounded-lg border border-green-500/30 text-xs font-medium text-green-400"
+                        >
+                            🍃 MongoDB
+                        </motion.div>
+                        <motion.div
+                            animate={{ y: [0, 6, 0] }}
+                            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                            className="absolute -top-10 left-1/3 px-3 py-1.5 glass rounded-lg border border-orange-500/30 text-xs font-medium text-orange-400"
+                        >
+                            ☁ AWS
                         </motion.div>
                     </div>
                 </motion.div>

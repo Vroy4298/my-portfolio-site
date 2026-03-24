@@ -8,6 +8,8 @@ import Experience from './components/Experience';
 import Certifications from './components/Certifications';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import DoorGate from './components/DoorGate';
+import ScifiBackground from './components/ScifiBackground';
 
 // Temporary error boundary to surface crash messages
 class ErrorBoundary extends Component {
@@ -37,6 +39,7 @@ class ErrorBoundary extends Component {
 
 function App() {
     const [darkMode, setDarkMode] = useState(true);
+    const [introComplete, setIntroComplete] = useState(false);
 
     const toggleTheme = () => {
         setDarkMode(prev => {
@@ -52,6 +55,14 @@ function App() {
 
     return (
         <div className="min-h-screen bg-[#020617] overflow-x-hidden selection:bg-cyan-500/20 selection:text-cyan-400">
+            {/* Persistent sci-fi animated background — rendered behind everything */}
+            <ScifiBackground />
+
+            {/* Door-gate intro animation — only until introComplete */}
+            {!introComplete && (
+                <DoorGate onComplete={() => setIntroComplete(true)} />
+            )}
+
             <ErrorBoundary>
                 <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
             </ErrorBoundary>

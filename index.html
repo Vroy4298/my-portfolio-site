@@ -269,6 +269,81 @@
       font-size: 0.8rem;
       line-height: 1.6;
     }
+
+    /* ── Sci-Fi Background: scrolling grid ── */
+    @keyframes gridMove {
+      0%   { background-position: 0px 0px; }
+      100% { background-position: 0px 60px; }
+    }
+
+    /* ── SciFi Background: horizontal scan sweep ── */
+    @keyframes scanSweep {
+      0%   { top: -2px; opacity: 0; }
+      5%   { opacity: 1; }
+      95%  { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    /* ── Terminal scanline overlay ── */
+    .terminal-scanline {
+      position: relative;
+      overflow: hidden;
+    }
+    .terminal-scanline::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 3px;
+      background: rgba(6,182,212,0.15);
+      animation: termScan 3s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes termScan {
+      0%   { top: 0%; }
+      100% { top: 100%; }
+    }
+
+    /* ── Subtle text glow for HUD elements ── */
+    .hud-text {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ── HUD bracket corners ── */
+    .hud-corner {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-color: rgba(6,182,212,0.5);
+      border-style: solid;
+    }
+    .hud-corner-tl { top: 8px; left: 8px; border-width: 2px 0 0 2px; border-radius: 2px 0 0 0; }
+    .hud-corner-tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; border-radius: 0 2px 0 0; }
+    .hud-corner-bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; border-radius: 0 0 0 2px; }
+    .hud-corner-br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; border-radius: 0 0 2px 0; }
+
+    /* ── Terminal line slide-in ── */
+    .terminal-text-line {
+      animation: lineIn 0.2s ease forwards;
+    }
+    @keyframes lineIn {
+      from { opacity: 0; transform: translateX(-6px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ── Neon flicker for accent elements ── */
+    @keyframes neonFlicker {
+      0%, 100% { opacity: 1; }
+      92%       { opacity: 1; }
+      93%       { opacity: 0.4; }
+      94%       { opacity: 1; }
+      96%       { opacity: 0.6; }
+      97%       { opacity: 1; }
+    }
+    .neon-flicker {
+      animation: neonFlicker 5s ease-in-out infinite;
+    }
   </style>
   <link rel="stylesheet" href="/index.css">
 </head>
