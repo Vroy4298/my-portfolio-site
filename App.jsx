@@ -63,19 +63,21 @@ function App() {
                 <DoorGate onComplete={() => setIntroComplete(true)} />
             )}
 
-            <ErrorBoundary>
-                <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
-            </ErrorBoundary>
-            <main>
-                <ErrorBoundary><Hero /></ErrorBoundary>
-                <ErrorBoundary><About /></ErrorBoundary>
-                <ErrorBoundary><Skills /></ErrorBoundary>
-                <ErrorBoundary><Projects /></ErrorBoundary>
-                <ErrorBoundary><Experience /></ErrorBoundary>
-                <ErrorBoundary><Certifications /></ErrorBoundary>
-                <ErrorBoundary><Education /></ErrorBoundary>
-                <ErrorBoundary><Contact /></ErrorBoundary>
-            </main>
+            <div className="relative z-10">
+                <ErrorBoundary>
+                    <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+                </ErrorBoundary>
+                <main>
+                    <ErrorBoundary><Hero /></ErrorBoundary>
+                    <ErrorBoundary><About /></ErrorBoundary>
+                    <ErrorBoundary><Skills /></ErrorBoundary>
+                    <ErrorBoundary><Projects /></ErrorBoundary>
+                    <ErrorBoundary><Experience /></ErrorBoundary>
+                    <ErrorBoundary><Certifications /></ErrorBoundary>
+                    <ErrorBoundary><Education /></ErrorBoundary>
+                    <ErrorBoundary><Contact /></ErrorBoundary>
+                </main>
+            </div>
         </div>
     );
 }
