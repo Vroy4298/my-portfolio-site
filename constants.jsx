@@ -18,30 +18,120 @@ export const NAV_LINKS = [
 ];
 
 export const SKILLS = [
-    // Frontend
-    { name: "HTML", category: "Frontend", icon: Code2 },
-    { name: "CSS", category: "Frontend", icon: Code2 },
-    { name: "JavaScript", category: "Frontend", icon: Code2 },
-    { name: "React", category: "Frontend", icon: Layout },
-    { name: "Tailwind CSS", category: "Frontend", icon: Layout },
+    // ── Frontend ──
+    {
+        name: "HTML", category: "Frontend",
+        symbol: "⟨/⟩", color: "#e34c26",
+        proficiency: 95,
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        desc: "Solid semantic HTML5 markup — forms, accessibility, and structure across all my projects."
+    },
+    {
+        name: "CSS", category: "Frontend",
+        symbol: "✦", color: "#264de4",
+        proficiency: 88,
+        projects: ["Land Tax System", "LeaveLoop"],
+        desc: "Custom layouts, animations, and responsive design using Flexbox, Grid, and media queries."
+    },
+    {
+        name: "JavaScript", category: "Frontend",
+        symbol: "JS", color: "#f7df1e",
+        proficiency: 85,
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        desc: "ES6+ features, async/await, DOM manipulation, and REST API integration across all projects."
+    },
+    {
+        name: "React", category: "Frontend",
+        symbol: "⚛", color: "#61dafb",
+        proficiency: 87,
+        projects: ["Land Tax System", "LeaveLoop"],
+        desc: "Component-based UIs, hooks, React Router, Context API, and state management for real-world apps."
+    },
+    {
+        name: "Tailwind CSS", category: "Frontend",
+        symbol: "▲", color: "#38bdf8",
+        proficiency: 90,
+        projects: ["LeaveLoop", "Transport Booking System"],
+        desc: "Rapid UI development with utility-first Tailwind — dark mode, custom themes, responsive grids."
+    },
 
-    // Backend
-    { name: "Node.js", category: "Backend", icon: Server },
-    { name: "Express", category: "Backend", icon: Server },
-    { name: "PHP", category: "Backend", icon: Globe },
-    { name: "Laravel", category: "Backend", icon: Globe },
+    // ── Backend ──
+    {
+        name: "Node.js", category: "Backend",
+        symbol: "⬡", color: "#68a063",
+        proficiency: 82,
+        projects: ["Land Tax System", "LeaveLoop"],
+        desc: "RESTful APIs, middleware, JWT auth, and file handling using Express on Node.js runtime."
+    },
+    {
+        name: "Express", category: "Backend",
+        symbol: "Ex", color: "#ffffff",
+        proficiency: 80,
+        projects: ["Land Tax System", "LeaveLoop"],
+        desc: "Built clean MVC-structured REST APIs with authentication, validation, and error handling."
+    },
+    {
+        name: "PHP", category: "Backend",
+        symbol: "php", color: "#8892bf",
+        proficiency: 75,
+        projects: ["Transport Booking System"],
+        desc: "Server-side scripting and backend logic for the Transport Booking System via Laravel."
+    },
+    {
+        name: "Laravel", category: "Backend",
+        symbol: "🔺", color: "#ff2d20",
+        proficiency: 78,
+        projects: ["Transport Booking System"],
+        desc: "Full MVC app with Eloquent ORM, Blade templates, email notification, and Docker deployment."
+    },
 
-    // Databases
-    { name: "MySQL", category: "Database", icon: Database },
-    { name: "MongoDB", category: "Database", icon: Database },
+    // ── Database ──
+    {
+        name: "MySQL", category: "Database",
+        symbol: "⊞", color: "#00758f",
+        proficiency: 80,
+        projects: ["Transport Booking System"],
+        desc: "Relational schema design, complex queries, foreign keys, and PostgreSQL integration."
+    },
+    {
+        name: "MongoDB", category: "Database",
+        symbol: "🍃", color: "#47a248",
+        proficiency: 83,
+        projects: ["Land Tax System", "LeaveLoop"],
+        desc: "Schema design with Mongoose, CRUD operations, aggregation, and indexing for NoSQL data."
+    },
 
-    // Core
-    { name: "C++", category: "Core", icon: Code2 },
+    // ── Core ──
+    {
+        name: "C++", category: "Core",
+        symbol: "C⁺⁺", color: "#00599c",
+        proficiency: 78,
+        projects: ["DSA Practice", "Academic Projects"],
+        desc: "Used for data structures, algorithm problem solving, and competitive programming practice."
+    },
 
-    // Tools
-    { name: "Git", category: "Tools", icon: Terminal },
-    { name: "GitHub", category: "Tools", icon: Terminal },
-    { name: "VS Code", category: "Tools", icon: Settings },
+    // ── Tools ──
+    {
+        name: "Git", category: "Tools",
+        symbol: "⌥", color: "#f05032",
+        proficiency: 88,
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        desc: "Branching, rebasing, conflict resolution, and version control across all project repositories."
+    },
+    {
+        name: "GitHub", category: "Tools",
+        symbol: "◎", color: "#ffffff",
+        proficiency: 90,
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        desc: "Pull requests, GitHub Actions for CI/CD, Pages deployment, and project collaboration."
+    },
+    {
+        name: "VS Code", category: "Tools",
+        symbol: "⌨", color: "#007acc",
+        proficiency: 95,
+        projects: ["All Projects"],
+        desc: "Primary editor with extensions for debugging, linting, Prettier, and IntelliSense workflows."
+    },
 ];
 
 
