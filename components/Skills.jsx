@@ -2,7 +2,137 @@ import React, { useState, useRef, useCallback } from 'react';
 import SectionWrapper from './SectionWrapper';
 import { SKILLS } from '../constants';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Briefcase, BarChart2, Info } from 'lucide-react';
+import { Briefcase, BarChart2, Info, MousePointerClick, Layers, Zap } from 'lucide-react';
+
+// ── Idle/default right-panel shown before any skill is hovered ────────────────
+const ORBIT_ICONS = [
+    { symbol: '⚛',  color: '#61dafb', r: 82,  speed: 12, startDeg: 0   },
+    { symbol: 'JS', color: '#f7df1e', r: 82,  speed: 12, startDeg: 90  },
+    { symbol: '⬡',  color: '#68a063', r: 82,  speed: 12, startDeg: 180 },
+    { symbol: '🍃', color: '#47a248', r: 82,  speed: 12, startDeg: 270 },
+    { symbol: 'Ex', color: '#aaaaaa', r: 50,  speed: 8,  startDeg: 45  },
+    { symbol: '⌥',  color: '#f05032', r: 50,  speed: 8,  startDeg: 225 },
+];
+
+const STATS_IDLE = [
+    { icon: Layers,  value: `${SKILLS.length}`, label: 'Technologies' },
+    { icon: Zap,     value: `${Array.from(new Set(SKILLS.map(s => s.category))).length}`, label: 'Categories' },
+    { icon: Briefcase, value: '3', label: 'Projects' },
+];
+
+const IdlePanel = () => (
+    <motion.div
+        key="idle"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -8 }}
+        transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        className="rounded-2xl overflow-hidden"
+        style={{
+            background: 'rgba(6,10,20,0.7)',
+            border: '1px solid rgba(6,182,212,0.12)',
+            boxShadow: '0 0 40px rgba(6,182,212,0.06), 0 8px 32px rgba(0,0,0,0.4)',
+            backdropFilter: 'blur(20px)',
+        }}
+    >
+        {/* Top accent bar */}
+        <div className="h-0.5 w-full" style={{ background: 'linear-gradient(90deg, #06b6d4, #8b5cf6, transparent)' }} />
+
+        <div className="p-6">
+            {/* Heading */}
+            <div className="mb-5">
+                <p className="text-[10px] font-mono tracking-[0.25em] text-cyan-500 uppercase mb-1">Interactive Panel</p>
+                <h3 className="text-white font-display font-bold text-lg leading-tight">
+                    Explore My <span style={{ background: 'linear-gradient(135deg,#06b6d4,#8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Technical Stack</span>
+                </h3>
+                <p className="text-slate-500 text-xs mt-1.5 leading-relaxed">
+                    Hover any skill icon on the left to see proficiency, projects, and detailed experience.
+                </p>
+            </div>
+
+            {/* Orbiting tech icons visualisation */}
+            <div className="relative flex items-center justify-center mb-6" style={{ height: 200 }}>
+                {/* Orbit rings */}
+                {[82, 50].map(r => (
+                    <div key={r} className="absolute rounded-full" style={{
+                        width: r * 2 + 28,
+                        height: r * 2 + 28,
+                        border: '1px solid rgba(6,182,212,0.1)',
+                    }} />
+                ))}
+
+                {/* Centre orb */}
+                <motion.div
+                    animate={{ scale: [1, 1.08, 1], boxShadow: ['0 0 18px rgba(6,182,212,0.3)', '0 0 32px rgba(6,182,212,0.5)', '0 0 18px rgba(6,182,212,0.3)'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    className="absolute w-12 h-12 rounded-full flex items-center justify-center z-10"
+                    style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.25) 0%, rgba(6,182,212,0.05) 100%)', border: '1.5px solid rgba(6,182,212,0.4)' }}
+                >
+                    <span className="text-cyan-400 text-lg">{ '{' }</span>
+                </motion.div>
+
+                {/* Orbiting icons */}
+                {ORBIT_ICONS.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute flex items-center justify-center"
+                        style={{ width: '100%', height: '100%' }}
+                        animate={{ rotate: 360 }}
+                        transition={{
+                            duration: item.speed,
+                            repeat: Infinity,
+                            ease: 'linear',
+                            delay: -(item.startDeg / 360) * item.speed,
+                        }}
+                    >
+                        {/* Arm offset */}
+                        <motion.div
+                            animate={{ rotate: -360 }}
+                            transition={{ duration: item.speed, repeat: Infinity, ease: 'linear', delay: -(item.startDeg / 360) * item.speed }}
+                            className="absolute flex items-center justify-center w-8 h-8 rounded-lg text-[11px] font-black"
+                            style={{
+                                top: `calc(50% - ${item.r + 14}px)`,
+                                left: 'calc(50% - 16px)',
+                                background: `${item.color}18`,
+                                border: `1px solid ${item.color}45`,
+                                color: item.color,
+                                fontFamily: "'Courier New', monospace",
+                            }}
+                        >
+                            {item.symbol}
+                        </motion.div>
+                    </motion.div>
+                ))}
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-2 mb-5">
+                {STATS_IDLE.map(({ icon: Icon, value, label }) => (
+                    <div key={label} className="flex flex-col items-center gap-1 p-2.5 rounded-xl"
+                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                        <Icon size={13} className="text-cyan-500" />
+                        <span className="text-white font-black text-lg leading-none font-display" style={{ background: 'linear-gradient(135deg,#06b6d4,#8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{value}</span>
+                        <span className="text-[9px] text-slate-600 uppercase tracking-wide text-center">{label}</span>
+                    </div>
+                ))}
+            </div>
+
+            {/* CTA hint */}
+            <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
+                style={{ background: 'rgba(6,182,212,0.06)', border: '1px dashed rgba(6,182,212,0.18)' }}>
+                <motion.div
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                    <MousePointerClick size={14} className="text-cyan-500" />
+                </motion.div>
+                <p className="text-xs text-slate-400">
+                    <span className="text-cyan-400 font-semibold">Hover any icon</span> to see full details
+                </p>
+            </div>
+        </div>
+    </motion.div>
+);
 
 // ── Category accent colours ──────────────────────────────────────────────────
 const CATEGORY_ACCENTS = {
@@ -304,33 +434,7 @@ const Skills = () => {
                         {activeSkill ? (
                             <SkillTooltip key={activeSkill.name} skill={activeSkill} />
                         ) : (
-                            <motion.div
-                                key="prompt"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                className="rounded-2xl flex flex-col items-center justify-center gap-4 py-16 px-8 text-center"
-                                style={{
-                                    background: 'rgba(13,17,23,0.5)',
-                                    border: '1px dashed rgba(255,255,255,0.08)',
-                                }}
-                            >
-                                {/* Animated cursor icon */}
-                                <motion.div
-                                    animate={{ scale: [1, 1.12, 1], opacity: [0.5, 1, 0.5] }}
-                                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                                    className="w-12 h-12 rounded-xl flex items-center justify-center"
-                                    style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)' }}
-                                >
-                                    <BarChart2 size={22} className="text-cyan-500" />
-                                </motion.div>
-                                <div>
-                                    <p className="text-slate-300 font-medium text-sm mb-1">Hover a skill icon</p>
-                                    <p className="text-slate-600 text-xs leading-relaxed">
-                                        See proficiency, projects I used it in, and my experience with each technology.
-                                    </p>
-                                </div>
-                            </motion.div>
+                            <IdlePanel />
                         )}
                     </AnimatePresence>
                 </div>
