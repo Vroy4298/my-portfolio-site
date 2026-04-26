@@ -137,6 +137,17 @@ export const SKILLS = [
 
 export const PROJECTS = [
     {
+        id: "4",
+        title: "Wall Calendar",
+        description: "A production-quality, interactive wall calendar component with date range selection, integrated notes, monthly themes, and dynamic colour theming. Fully responsive with Framer Motion animations.",
+        techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        category: "Web",
+        githubLink: "https://github.com/Vroy4298/Wall-Calendar",
+        demoLink: "https://wall-calendar-hazel-five.vercel.app",
+        image: "/wall_calendar_preview.png",
+        isLatest: true,
+    },
+    {
         id: "1",
         title: "Land Tax System",
         description: "A production-ready Land Tax Management System with secure user authentication, property management, automated tax calculation, online payments, receipt generation, and email-based password recovery. Deployed on Vercel and Render.",
@@ -144,7 +155,6 @@ export const PROJECTS = [
         category: "Web",
         githubLink: "https://github.com/Vroy4298/land-tax-system",
         image: "/land_tax_preview.png",
-        isLatest: true,
     },
     {
         id: "2",
