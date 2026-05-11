@@ -178,6 +178,18 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
     {
+        role: "Open Source Contributor",
+        company: "GirlScript Summer of Code (GSSoC)",
+        period: "2025",
+        isOpenSource: true,
+        description: [
+            "Selected as an Open Source Contributor in GirlScript Summer of Code 2025 — one of India's largest open-source programs.",
+            "Contributing to real-world open-source projects, reviewing pull requests, and collaborating with a global developer community.",
+            "Gaining hands-on experience in open-source workflows including forking, branching, code reviews, and issue tracking on GitHub."
+        ],
+        skills: ["Open Source", "Git", "GitHub", "Collaboration", "Code Review"]
+    },
+    {
         role: "Technical Intern",
         company: "Don Bosco Integrated Development Society",
         period: "Summer 2024",

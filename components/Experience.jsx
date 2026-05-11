@@ -2,7 +2,7 @@ import React from 'react';
 import SectionWrapper from './SectionWrapper';
 import { EXPERIENCE } from '../constants';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, GitMerge } from 'lucide-react';
 
 const Experience = () => {
     return (
@@ -71,19 +71,30 @@ const Experience = () => {
 
                             <div className="p-6 glass glow-border card-glow-top rounded-2xl hover:shadow-xl hover:shadow-cyan-500/5 transition-all duration-300">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
-                                        <Briefcase size={18} className="text-cyan-400" />
+                                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${exp.isOpenSource ? 'bg-violet-500/15' : 'bg-cyan-500/10'}`}>
+                                        {exp.isOpenSource
+                                            ? <GitMerge size={18} className="text-violet-400" />
+                                            : <Briefcase size={18} className="text-cyan-400" />
+                                        }
                                     </div>
                                     <div>
-                                        <h3 className="text-lg font-display font-bold text-white">{exp.role}</h3>
-                                        <p className="text-cyan-400 text-sm hidden md:block">{exp.company}</p>
+                                        <div className="flex items-center gap-2 flex-wrap">
+                                            <h3 className="text-lg font-display font-bold text-white">{exp.role}</h3>
+                                            {exp.isOpenSource && (
+                                                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold text-violet-300 border border-violet-500/40"
+                                                    style={{ background: 'rgba(139,92,246,0.12)' }}>
+                                                    🌐 Open Source
+                                                </span>
+                                            )}
+                                        </div>
+                                        <p className={`text-sm hidden md:block ${exp.isOpenSource ? 'text-violet-400' : 'text-cyan-400'}`}>{exp.company}</p>
                                     </div>
                                 </div>
 
                                 <ul className="space-y-2 mb-4">
                                     {exp.description.map((item, i) => (
                                         <li key={i} className="flex items-start gap-2 text-slate-400 text-sm leading-relaxed">
-                                            <span className="mt-2 w-1.5 h-1.5 bg-cyan-400 rounded-full shrink-0" />
+                                            <span className={`mt-2 w-1.5 h-1.5 rounded-full shrink-0 ${exp.isOpenSource ? 'bg-violet-400' : 'bg-cyan-400'}`} />
                                             {item}
                                         </li>
                                     ))}
@@ -96,6 +107,7 @@ const Experience = () => {
                                 </div>
                             </div>
                         </div>
+
                     </motion.div>
                 ))}
             </div>
