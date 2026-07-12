@@ -37,21 +37,21 @@ export const SKILLS = [
         name: "JavaScript", category: "Frontend",
         symbol: "JS", color: "#f7df1e",
         proficiency: 85,
-        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System", "SIGNAL"],
         desc: "ES6+ features, async/await, DOM manipulation, and REST API integration across all projects."
     },
     {
         name: "React", category: "Frontend",
         symbol: "⚛", color: "#61dafb",
         proficiency: 87,
-        projects: ["Land Tax System", "LeaveLoop"],
+        projects: ["Land Tax System", "LeaveLoop", "SIGNAL"],
         desc: "Component-based UIs, hooks, React Router, Context API, and state management for real-world apps."
     },
     {
         name: "Tailwind CSS", category: "Frontend",
         symbol: "▲", color: "#38bdf8",
         proficiency: 90,
-        projects: ["LeaveLoop", "Transport Booking System"],
+        projects: ["LeaveLoop", "Transport Booking System", "SIGNAL"],
         desc: "Rapid UI development with utility-first Tailwind — dark mode, custom themes, responsive grids."
     },
 
@@ -60,14 +60,14 @@ export const SKILLS = [
         name: "Node.js", category: "Backend",
         symbol: "⬡", color: "#68a063",
         proficiency: 82,
-        projects: ["Land Tax System", "LeaveLoop"],
+        projects: ["Land Tax System", "LeaveLoop", "SIGNAL"],
         desc: "RESTful APIs, middleware, JWT auth, and file handling using Express on Node.js runtime."
     },
     {
         name: "Express", category: "Backend",
         symbol: "Ex", color: "#ffffff",
         proficiency: 80,
-        projects: ["Land Tax System", "LeaveLoop"],
+        projects: ["Land Tax System", "LeaveLoop", "SIGNAL"],
         desc: "Built clean MVC-structured REST APIs with authentication, validation, and error handling."
     },
     {
@@ -115,14 +115,14 @@ export const SKILLS = [
         name: "Git", category: "Tools",
         symbol: "⌥", color: "#f05032",
         proficiency: 88,
-        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System", "SIGNAL"],
         desc: "Branching, rebasing, conflict resolution, and version control across all project repositories."
     },
     {
         name: "GitHub", category: "Tools",
         symbol: "◎", color: "#ffffff",
         proficiency: 90,
-        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System"],
+        projects: ["Land Tax System", "LeaveLoop", "Transport Booking System", "SIGNAL"],
         desc: "Pull requests, GitHub Actions for CI/CD, Pages deployment, and project collaboration."
     },
     {
@@ -137,6 +137,17 @@ export const SKILLS = [
 
 export const PROJECTS = [
     {
+        id: "5",
+        title: "SIGNAL — AI Investment Agent",
+        description: "An autonomous, multi-agent investment research assistant that conducts real-time web research across five analytical dimensions (financials, moat, risk, growth, and business model) to deliver structured INVEST or PASS recommendations.",
+        techStack: ["React", "Node.js", "LangGraph.js", "LangChain.js", "Tailwind CSS"],
+        category: "Web",
+        githubLink: "https://github.com/Vroy4298/ai-investment-research-agent",
+        demoLink: "https://ai-investment-research-agent-gules.vercel.app/",
+        image: "/signal_preview.png",
+        isLatest: true,
+    },
+    {
         id: "4",
         title: "Wall Calendar",
         description: "A production-quality, interactive wall calendar component with date range selection, integrated notes, monthly themes, and dynamic colour theming. Fully responsive with Framer Motion animations.",
@@ -145,7 +156,6 @@ export const PROJECTS = [
         githubLink: "https://github.com/Vroy4298/Wall-Calendar",
         demoLink: "https://wall-calendar-hazel-five.vercel.app",
         image: "/wall_calendar_preview.png",
-        isLatest: true,
     },
     {
         id: "1",
