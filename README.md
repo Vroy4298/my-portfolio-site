@@ -2,8 +2,6 @@
 
 A sleek, modern, and responsive personal portfolio website built to showcase my projects, skills, experience, and educational background.
 
-## 🚀 Live Demo
-*(Add your live demonstration link here once deployed)*
 
 ## ✨ Features
 
